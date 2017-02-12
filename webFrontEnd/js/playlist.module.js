@@ -1,24 +1,9 @@
 // Parts of code: https://docs.angularjs.org/api/ngRoute/service/$route
 angular.module('playlistModule', ['ngRoute'])
 
-    .controller('MainController', function($scope, $route, $routeParams, $location) {
-        $scope.$route = $route;
-        $scope.$location = $location;
-        $scope.$routeParams = $routeParams;
-    })
-
-    .controller('BookController', function($scope, $routeParams) {
-        $scope.name = 'BookController';
-        $scope.params = $routeParams;
-    })
-
-    .controller('ChapterController', function($scope, $routeParams) {
-        $scope.name = 'ChapterController';
-        $scope.params = $routeParams;
-    })
-
     .config(function($routeProvider, $locationProvider) {
         $routeProvider
+            // Loren Routes Below Here (these comments prevent git from getting confused)
             .when('/Book/:bookId', {
                 templateUrl: './templates/book.html',
                 controller: 'BookController',
@@ -31,12 +16,21 @@ angular.module('playlistModule', ['ngRoute'])
                     }
                 }
             })
+            //  Ashfaq Dawood Below Here
+
+            // Shaobo Zhang Below Here
+
+            // Chunlin Wang Below Here
+
+            // Final route here (to get the semicolon)
+
             .when('/Book/:bookId/ch/:chapterId', {
                 templateUrl: './templates/chapter.html',
                 controller: 'ChapterController'
             });
 
+
+
         // configure html5 to get links working on jsfiddle
         $locationProvider.html5Mode(true);
     });
-
