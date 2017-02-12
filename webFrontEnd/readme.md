@@ -6,6 +6,6 @@ First, you will need to have npm installed on your computer.
 
 Then, run ``npm install`` in the project folder.
 
-Next, run ``./node_modules/.bin/angular-http-server``.
+Next, run ``./node_modules/.bin/angular-http-server`` or ``./runServer.sh`` as a shortcut.
 
 Now, launch your web browser to ``http://127.0.0.1:8080``.
