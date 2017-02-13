@@ -33,4 +33,14 @@ angular.module('playlistModule', ['ngRoute'])
 
         // configure html5 to get links working on jsfiddle
         $locationProvider.html5Mode(true);
+    }).run(function($rootScope) {
+        $rootScope.baseURL = 'http://test.com';
+    // instance-injector
+                                   // This is an example of a run block.
+                                   // You can have as many of these as you want.
+                                   // You can only inject instances (not Providers)
+                                   // into run blocks
+    }).factory('Entry', function($resource) {
+        // https://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/
+        return $resource('/api/entries/:id'); // Note the full endpoint address
     });
