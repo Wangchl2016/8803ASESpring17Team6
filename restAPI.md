@@ -1,4 +1,4 @@
-lient Application to Web Server Interface
+# Web Client Application to Web Server Interface
 
 All objects will be represented in JSON format unless otherwise noted.
 `Optional<>` implies that the field is not guaranteed to be included in the object returned from the web server.
