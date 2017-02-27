@@ -1,0 +1,31 @@
+language: node_js
+
+node_js:
+  - 0.10.25
+install:
+  - npm install -g karma karma-cli bower gulp
+  - npm install
+  - bower install
+# Make folders for the reports, and create the SQL db
+before_script:
+
+
+script:
+  - npm test
+  - mv shippable/codecoverage/*/coverage.xml shippable/codecoverage
+after_script:
+
+after_success :
+  - if [ "$BRANCH" == "master" ] ; then DEPLOY_SERVER="prod" ; else DEPLOY_SERVER="staging" ; fi
+  - echo $DEPLOY_SERVER
+  #- git push  git@heroku.com:avi-hot-static.git $COMMIT:master --force
+  #- git push  git@heroku.com:avi-hot-static.git master --force
+  - echo $BRANCH
+  - echo $BRANCH
+  - echo $BUILD_NUMBER
+  - echo $BUILD_URL 
+  - echo $COMMIT 
+  - echo $DEBIAN_FRONTEND 
+  - echo $JOB_ID 
+  - echo $PULL_REQUEST 
+- gulp
