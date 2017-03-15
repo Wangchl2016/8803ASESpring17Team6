@@ -4,6 +4,7 @@ angular.module('playlistModule')
         $scope.login = function (loginForm) {
             if (!loginForm.$valid) {
                 alert("Please enter a valid email address and password.");
+                return false;
             }
             $http({
                 method: 'GET',
