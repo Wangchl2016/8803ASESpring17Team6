@@ -1,6 +1,7 @@
 angular.module('playlistModule')
 
-    .controller('LoginController', function($scope, $http, $rootScope) {
+    .controller('LoginController', function($scope, $http, $rootScope, $location) {
+
         $scope.login = function (loginForm) {
             if (!loginForm.$valid) {
                 alert("Please enter a valid email address and password.");
@@ -14,6 +15,7 @@ angular.module('playlistModule')
                 console.log(response);
                 if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
                     alert("Valid! Got a token! "+response.data.token);
+                    $location.path('/playlist');
                 } else {
                     alert("Login Failed");
                 }
@@ -27,4 +29,5 @@ angular.module('playlistModule')
             alert($scope.email+" "+$scope.password);
             return false;
         };
+
     });

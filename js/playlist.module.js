@@ -20,6 +20,10 @@ angular.module('playlistModule', ['ngRoute'])
                 templateUrl: './templates/welcome.html',
                 controller: 'WelcomeController'
             })
+            .when('/playlist', {
+                templateUrl: './templates/playlist.html',
+                controller: 'PlaylistController'
+            })
             .when('/register', {
                 templateUrl: './templates/register.html',
                 controller: 'RegisterController'
