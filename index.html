@@ -13,6 +13,51 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon/music-72-166613.png">
     <link rel="apple-touch-icon-precomposed" href="/favicon/music-57-166613.png">
     <link rel="icon" href="/favicon/music-32-166613.png" sizes="32x32">
+
+    <style type="text/css">
+        body {
+            background-color: #666;
+        }
+        div.welcome {
+            width: 350px;
+            height: 200px;
+            background-color: #FFF;
+            border: 1px solid black;
+            text-align: center;
+
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            margin: auto;
+        }
+        /*http://www.bestcssbuttongenerator.com/*/
+        .myButton {
+            background-color:#44c767;
+            -moz-border-radius:28px;
+            -webkit-border-radius:28px;
+            border-radius:28px;
+            border:1px solid #18ab29;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            padding:16px 31px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #2f6627;
+        }
+        .myButton:hover {
+            background-color:#5cbf2a;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
+    </style>
     
     <script src="/vendor/angular/angular.min.js"></script>
     <script src="/vendor/angular/angular-route.js"></script>
@@ -23,6 +68,8 @@
     <script src="/js/playlist.controller.js"></script>
     <script src="/js/book.controller.js"></script>
     <script src="/js/chapter.controller.js"></script>
+    <script src="/js/register.controller.js"></script>
+    <script src="/js/login.controller.js"></script>
 
 
     <!-- Ashfaq Dawood Below Here -->
@@ -35,32 +82,7 @@
 </head>
 <body ng-controller="MainController as main">
 <div>
-    <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
-    <hr>
-    <h1>Hello {{yourName}}!</h1>
-    <a href="https://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/" target="_blank">REST App Tutorial</a>
-
-
-
-    <div>
-        Choose:
-        <a href="Book/Moby">Moby</a> |
-        <a href="Book/Moby/ch/1">Moby: Ch1</a> |
-        <a href="Book/Gatsby">Gatsby</a> |
-        <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
-        <a href="Book/Scarlet">Scarlet Letter</a><br/>
-
-        <div ng-view></div>
-
-        <hr />
-
-        <pre>$location.path() = {{$location.path()}}</pre>
-        <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
-        <pre>$route.current.params = {{$route.current.params}}</pre>
-        <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
-        <pre>$routeParams = {{$routeParams}}</pre>
-    </div>
+    <ng-view></ng-view>
 
 </div>
 </body>

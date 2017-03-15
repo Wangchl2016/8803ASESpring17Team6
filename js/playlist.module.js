@@ -16,6 +16,18 @@ angular.module('playlistModule', ['ngRoute'])
                     }
                 }
             })
+            .when('/welcome', {
+                templateUrl: './templates/welcome.html',
+                controller: 'WelcomeController'
+            })
+            .when('/register', {
+                templateUrl: './templates/register.html',
+                controller: 'RegisterController'
+            })
+            .when('/login', {
+                templateUrl: './templates/login.html',
+                controller: 'LoginController'
+            })
             //  Ashfaq Dawood Below Here
 
             // Shaobo Zhang Below Here
@@ -27,14 +39,15 @@ angular.module('playlistModule', ['ngRoute'])
             .when('/Book/:bookId/ch/:chapterId', {
                 templateUrl: './templates/chapter.html',
                 controller: 'ChapterController'
-            });
+            })
+            .otherwise({redirectTo:'/welcome'});
 
 
 
         // configure html5 to get links working on jsfiddle
         $locationProvider.html5Mode(true);
     }).run(function($rootScope) {
-        $rootScope.baseURL = 'http://test.com';
+        $rootScope.baseURL = 'http://klingmandesign.com/ase/public/';
     // instance-injector
                                    // This is an example of a run block.
                                    // You can have as many of these as you want.
