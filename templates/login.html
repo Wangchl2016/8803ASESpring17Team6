@@ -1,4 +1,8 @@
 <div class="welcome">
     <h1>Playlist Sharing App - Login</h1>
-    HEy!
+    <form ng-submit="login(loginForm)" name="loginForm">
+    <input type="email" required="required" placeholder="Email" ng-model="email">
+    <input type="password" required="required" placeholder="Password" ng-model="password"><br>
+        <button type="submit" class="myButton">Login</button>
+    </form>
 </div>
