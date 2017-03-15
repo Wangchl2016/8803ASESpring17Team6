@@ -10,13 +10,18 @@ angular.module('playlistModule')
                 url: $rootScope.baseURL+'/api/users/login?email='+encodeURIComponent($scope.email)+
                     '&password='+encodeURIComponent($scope.password)
             }).then(function successCallback(response, status) {
-                if (response.hasOwnProperty('token')) {
-                    alert("Valid! Got a token! "+response.token);
+                console.log(response);
+                if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
+                    alert("Valid! Got a token! "+response.data.token);
                 } else {
                     alert("Login Failed");
                 }
-            }, function errorCallback(response, status) {
-                alert("Login Failed "+status);
+            }, function errorCallback(response) {
+                if (response.status == 412) {
+                    alert('Invalid Input: Please check that your email address is correct.');
+                } else {
+                    alert("Login Failed " + response.status);
+                }
             });
             alert($scope.email+" "+$scope.password);
             return false;

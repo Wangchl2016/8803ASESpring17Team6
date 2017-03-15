@@ -45,7 +45,7 @@ Route::get('api/users/login', function(\Illuminate\Http\Request $request) {
             ->header('Content-Type', 'text/plain');
     }
     if ($e == 'valid@test.com' && $p == 'valid') {
-        return 'token';
+        return ['token' => 'myToken'];
     } else {
         return response('error', 404)
             ->header('Content-Type', 'text/plain');
