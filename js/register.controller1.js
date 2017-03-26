@@ -10,13 +10,18 @@ angular.module('playlistModule')
                 alert("Please enter valid name, email address and password.");
                 return false;
             }
+            var user = {
+                'name' : $scope.firstname +" " + $scope.lastname,
+                'email' : $scope.email,
+                'password' : $scope.password
+            };
             $http({
                 method: 'POST',
                 url: $rootScope.baseURL+'/api/users',
-                data: registerForm
+                data: user
             }).then(function successCallback(response, status) {
                 console.log(response);
-                alert("server reply: "+response.data);
+                alert("server reply: "+response.data.email +" register successful!");
             }, function errorCallback(response) {
                 alert("Register Failed " + response.status);
             });
