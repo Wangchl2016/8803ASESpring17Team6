@@ -9,7 +9,7 @@ angular.module('playlistModule')
             }
             $http({
                 method: 'GET',
-                url: $rootScope.baseURL+'/api/users/login?email='+encodeURIComponent($scope.email)+
+                url: $rootScope.baseURL+'/users/login?email='+encodeURIComponent($scope.email)+
                 //url: $rootScope.baseURL+'/users/login?email='+encodeURIComponent($scope.email)+
                     '&password='+encodeURIComponent($scope.password)
             }).then(function successCallback(response, status) {
@@ -18,7 +18,7 @@ angular.module('playlistModule')
                     if (response.data.token == 0)
                         alert("Login failed! Invalid server reply");
                     else{
-                        alert("Valid! Got a token! "+response.data.token);
+                        alert("Valid! Got a token!");// "+response.data.token);
                         $location.path('/playlist');
                         //$location.path('/main');
                         //window.location.href = '/main';
@@ -32,11 +32,11 @@ angular.module('playlistModule')
                     alert('Invalid Input: Please check that your email address is correct.');
                 } else {
                     alert("Login Failed " + response.status);
-                    alert("response "+JSON.stringify(response));
+                    //alert("response "+JSON.stringify(response));
 
                 }
             });
-            alert($scope.email+" "+$scope.password);
+            //alert($scope.email+" "+$scope.password);
             return false;
         };
 

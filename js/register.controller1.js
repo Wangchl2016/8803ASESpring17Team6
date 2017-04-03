@@ -17,7 +17,7 @@ angular.module('playlistModule')
             };
             $http({
                 method: 'POST',
-                url: $rootScope.baseURL+'/api/users',
+                url: $rootScope.baseURL+'/users',
                 data: user
             }).then(function successCallback(response, status) {
                 console.log(response);
@@ -28,7 +28,7 @@ angular.module('playlistModule')
                     if (response.data.token == 0)
                         alert("Register failed! User existed");
                     else{
-                        alert("Valid! Got a token! "+response.data.token);
+                        alert("Valid! Got a token!"); //+response.data.token);
                         $location.path('/playlist');
                         //window.location.href = '/main';
                     }
@@ -38,10 +38,10 @@ angular.module('playlistModule')
 
             }, function errorCallback(response) {
                 alert("Register Failed " + response.status);
-                alert("response "+JSON.stringify(response));
+                //alert("response "+JSON.stringify(response));
             });
 
-            alert("local echo: "+$scope.email+" "+$scope.password+" "+$scope.firstname +" "+$scope.lastname);
+            //alert("local echo: "+$scope.email+" "+$scope.password+" "+$scope.firstname +" "+$scope.lastname);
             return false;
         };
     });

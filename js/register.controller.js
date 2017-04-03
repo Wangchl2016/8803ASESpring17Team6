@@ -19,7 +19,7 @@ angular.module('playlistModule')
             };
             $http({
                 method: 'POST',
-                url: $rootScope.baseURL+'/api/users',
+                url: $rootScope.baseURL+'/users',
                 data: user
             }).then(function successCallback(response, status) {
                 console.log(response);
