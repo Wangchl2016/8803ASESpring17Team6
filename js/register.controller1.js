@@ -11,7 +11,8 @@ angular.module('playlistModule')
                 return false;
             }
             var user = {
-                'name' : $scope.firstname +" " + $scope.lastname,
+                //'name' : $scope.firstname +" " + $scope.lastname,
+                'username' : $scope.firstname +" " + $scope.lastname,
                 'email' : $scope.email,
                 'password' : $scope.password
             };
@@ -24,11 +25,12 @@ angular.module('playlistModule')
                 // //alert("server reply: "+response.data.email +" register successful!");
                 // // show response
                 // alert("response "+JSON.stringify(response.data));
-                if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
-                    if (response.data.token == 0)
+                //if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
+                if (response.hasOwnProperty('data')) {
+                    if (response.data == 0)
                         alert("Register failed! User existed");
                     else{
-                        alert("Valid! Got a token!"); //+response.data.token);
+                        alert("Valid! Got a token!");// + response.data); //+response.data.token);
                         $location.path('/playlist');
                         //window.location.href = '/main';
                     }

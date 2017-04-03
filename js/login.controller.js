@@ -14,8 +14,9 @@ angular.module('playlistModule')
                     '&password='+encodeURIComponent($scope.password)
             }).then(function successCallback(response, status) {
                 console.log(response);
-                if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
-                    if (response.data.token == 0)
+                //if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
+                if (response.hasOwnProperty('data')) {
+                    if (response.data == 0)
                         alert("Login failed! Invalid server reply");
                     else{
                         alert("Valid! Got a token!");// "+response.data.token);
