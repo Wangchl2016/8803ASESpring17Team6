@@ -22,31 +22,37 @@ Route::post('api/users', function (\Illuminate\Http\Request $request) {
         'name' => $request->input('name')
     ];
     if (!filter_var($user['email'], FILTER_VALIDATE_EMAIL)) {
+        return ['error' => true];
         return response('error', 412)
             ->header('Content-Type', 'text/plain');
     } elseif (strlen($user['password']) < 1) {
+        return ['error' => true];
         return response('error', 412)
             ->header('Content-Type', 'text/plain');
     } elseif (strlen($user['name']) < 1) {
+        return ['error' => true];
         return response('error', 412)
             ->header('Content-Type', 'text/plain');
     }
-    return json_encode($user);
+    return ['token' => 12490435827];
 });
 
 Route::get('api/users/login', function(\Illuminate\Http\Request $request) {
     $e = $request->get('email');
     $p = $request->get('password');
     if (!filter_var($e, FILTER_VALIDATE_EMAIL)) {
+        return ['token' => 0];
         return response('error', 412)
             ->header('Content-Type', 'text/plain');
     } elseif (strlen($p) < 1) {
+        return ['token' => 0];
         return response('error', 412)
             ->header('Content-Type', 'text/plain');
     }
     if ($e == 'valid@test.com' && $p == 'valid') {
-        return ['token' => 'myToken'];
+        return ['token' => 12490435827];
     } else {
+        return ['token' => 0];
         return response('error', 404)
             ->header('Content-Type', 'text/plain');
     }

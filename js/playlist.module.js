@@ -35,7 +35,10 @@ angular.module('playlistModule', ['ngRoute'])
             //  Ashfaq Dawood Below Here
 
             // Shaobo Zhang Below Here
-
+            .when('/register1', {
+                templateUrl:'./templates/register1.html',
+                controller: 'RegisterController1'
+            })
             // Chunlin Wang Below Here
 
             // Final route here (to get the semicolon)
