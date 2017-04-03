@@ -4,7 +4,7 @@
 
 angular.module('playlistModule')
 
-    .controller('RegisterController1', function($scope, $http, $rootScope) {
+    .controller('RegisterController1', function($scope, $location, $http, $rootScope) {
         $scope.register = function (registerForm) {
             if (!registerForm.$valid) {
                 alert("Please enter valid name, email address and password.");
@@ -29,7 +29,8 @@ angular.module('playlistModule')
                         alert("Register failed! User existed");
                     else{
                         alert("Valid! Got a token! "+response.data.token);
-                        window.location.href = '/main';
+                        $location.path('/playlist');
+                        //window.location.href = '/main';
                     }
                 } else {
                     alert("Register Failed");
