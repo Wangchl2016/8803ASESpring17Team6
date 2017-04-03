@@ -13,7 +13,14 @@ angular.module('playlistModule')
             }).then(function successCallback(response, status) {
                 console.log(response);
                 if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
-                    alert("Valid! Got a token! "+response.data.token);
+                    if (response.data.token == 0)
+                        alert("Login failed! Invalid server reply");
+                    else{
+                        alert("Valid! Got a token! "+response.data.token);
+                        //$location.path('/main');
+                        window.location.href = '/main';
+                    }
+
                 } else {
                     alert("Login Failed");
                 }
@@ -22,6 +29,8 @@ angular.module('playlistModule')
                     alert('Invalid Input: Please check that your email address is correct.');
                 } else {
                     alert("Login Failed " + response.status);
+                    alert("response "+JSON.stringify(response));
+
                 }
             });
             alert($scope.email+" "+$scope.password);

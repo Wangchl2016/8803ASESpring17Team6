@@ -35,6 +35,10 @@ angular.module('playlistModule', ['ngRoute'])
                 templateUrl:'./templates/register1.html',
                 controller: 'RegisterController1'
             })
+            .when('/main', {
+                templateUrl:'./templates/main.html',
+                controller: 'MainPageController'
+            })
             // Chunlin Wang Below Here
 
             // Final route here (to get the semicolon)
@@ -50,7 +54,8 @@ angular.module('playlistModule', ['ngRoute'])
         // configure html5 to get links working on jsfiddle
         $locationProvider.html5Mode(true);
     }).run(function($rootScope) {
-        $rootScope.baseURL = 'http://klingmandesign.com/ase/public/';
+         $rootScope.baseURL = 'http://klingmandesign.com/ase/public/';
+        //$rootScope.baseURL = 'http://52.167.231.19:8080';
     // instance-injector
                                    // This is an example of a run block.
                                    // You can have as many of these as you want.
