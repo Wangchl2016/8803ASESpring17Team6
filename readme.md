@@ -1,5 +1,7 @@
 # Web Front End (Team 6)
 
+[Web Server](http://35.185.35.101)
+
 To run this code, it would be useful to use http-server-angular.
 
 First, you will need to have npm installed on your computer.
