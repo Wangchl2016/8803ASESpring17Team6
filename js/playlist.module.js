@@ -39,6 +39,10 @@ angular.module('playlistModule', ['ngRoute'])
                 templateUrl:'./templates/register1.html',
                 controller: 'RegisterController1'
             })
+            .when('/main', {
+                templateUrl:'./templates/main.html',
+                controller: 'MainPageController'
+            })
             // Chunlin Wang Below Here
 
             // Final route here (to get the semicolon)
@@ -55,7 +59,8 @@ angular.module('playlistModule', ['ngRoute'])
         $locationProvider.html5Mode(true);
     }).run(function($rootScope) {
         $rootScope.baseURL = 'http://klingmandesign.com/ase/public/';
-    // instance-injector
+        //$rootScope.baseURL = 'http://35.185.54.236:8080/server_1/webapi';
+        // instance-injector
                                    // This is an example of a run block.
                                    // You can have as many of these as you want.
                                    // You can only inject instances (not Providers)
