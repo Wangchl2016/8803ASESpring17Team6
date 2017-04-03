@@ -17,7 +17,7 @@ angular.module('playlistModule')
                 //if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
                 if (response.hasOwnProperty('data')) {
                     if (response.data == 0)
-                        alert("Login failed! Invalid server reply");
+                        alert("Login failed! Invalid username and password.");
                     else{
                         alert("Valid! Got a token!");// "+response.data.token);
                         $location.path('/playlist');
@@ -26,7 +26,7 @@ angular.module('playlistModule')
                     }
 
                 } else {
-                    alert("Login Failed");
+                    alert("Server Error.");
                 }
             }, function errorCallback(response) {
                 if (response.status == 412) {
