@@ -54,9 +54,9 @@ angular.module('playlistModule', ['ngRoute'])
         // configure html5 to get links working on jsfiddle
         $locationProvider.html5Mode(true);
     }).run(function($rootScope) {
-         $rootScope.baseURL = 'http://klingmandesign.com/ase/public/';
-        //$rootScope.baseURL = 'http://52.167.231.19:8080';
-    // instance-injector
+        $rootScope.baseURL = 'http://klingmandesign.com/ase/public/';
+        //$rootScope.baseURL = 'http://35.185.54.236:8080/server_1/webapi';
+        // instance-injector
                                    // This is an example of a run block.
                                    // You can have as many of these as you want.
                                    // You can only inject instances (not Providers)

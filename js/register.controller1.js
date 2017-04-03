@@ -37,7 +37,7 @@ angular.module('playlistModule')
 
             }, function errorCallback(response) {
                 alert("Register Failed " + response.status);
-                // alert("response "+JSON.stringify(response));
+                alert("response "+JSON.stringify(response));
             });
 
             alert("local echo: "+$scope.email+" "+$scope.password+" "+$scope.firstname +" "+$scope.lastname);

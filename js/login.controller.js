@@ -9,6 +9,7 @@ angular.module('playlistModule')
             $http({
                 method: 'GET',
                 url: $rootScope.baseURL+'/api/users/login?email='+encodeURIComponent($scope.email)+
+                //url: $rootScope.baseURL+'/users/login?email='+encodeURIComponent($scope.email)+
                     '&password='+encodeURIComponent($scope.password)
             }).then(function successCallback(response, status) {
                 console.log(response);
