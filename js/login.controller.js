@@ -19,7 +19,7 @@ angular.module('playlistModule')
                         alert("Login failed! Invalid server reply");
                     else{
                         alert("Valid! Got a token! "+response.data.token);
-                        $location.path('/playlist');
+                        //$location.path('/playlist');
                         //$location.path('/main');
                         window.location.href = '/main';
                     }
