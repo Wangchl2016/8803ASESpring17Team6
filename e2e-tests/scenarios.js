@@ -3,8 +3,6 @@
 /* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
 describe('my app', function() {
-
-
   it('should automatically redirect to /welcome when location hash/fragment is empty', function() {
     browser.get('index.html');
     expect(browser.getLocationAbsUrl()).toMatch("/welcome");
@@ -16,9 +14,6 @@ describe('login', function() {
 
     beforeEach(function() {
         browser.get('login');
-        browser.wait(function() {
-            return  $('#result').isPresent(); // keeps waiting until this statement resolves to true
-        }, 10000, 'message to log to console if element is not present after that time');
     });
     it('should return results', function() {
 
