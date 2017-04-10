@@ -1,6 +1,7 @@
 angular.module('playlistModule')
 
     .controller('LoginController', function($scope, $http, $rootScope, $location) {
+        $scope.result = "Nothing Yet";
 
         $scope.login = function (loginForm) {
             if (!loginForm.$valid) {
@@ -17,10 +18,10 @@ angular.module('playlistModule')
                 //if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
                 if (response.hasOwnProperty('data')) {
                     if (response.data == 0)
-                        alert("Login failed! Invalid username and password.");
+                        $scope.result = "Login failed! Invalid username and password.";
                     else{
-                        alert("Valid! Got a token!");// "+response.data.token);
-                        $location.path('/playlist');
+                        $scope.result = "Valid! Got a token!";// "+response.data.token);
+                        //$location.path('/playlist');
                         //$location.path('/main');
                         //window.location.href = '/main';
                     }
@@ -30,9 +31,9 @@ angular.module('playlistModule')
                 }
             }, function errorCallback(response) {
                 if (response.status == 412) {
-                    alert('Invalid Input: Please check that your email address is correct.');
+                    $scope.result = 'Invalid Input: Please check that your email address is correct.';
                 } else {
-                    alert("Login Failed " + response.status);
+                    $scope.result = "Login Failed " + response.status;
                     //alert("response "+JSON.stringify(response));
 
                 }
