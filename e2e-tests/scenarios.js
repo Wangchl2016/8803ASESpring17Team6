@@ -10,43 +10,46 @@ describe('my app', function() {
     expect(browser.getLocationAbsUrl()).toMatch("/welcome");
   });
 
+});
 
-  describe('login', function() {
+describe('login', function() {
 
     beforeEach(function() {
-      browser.get('/login');
+        browser.get('login');
+        browser.wait(function() {
+            return  $('#result').isPresent(); // keeps waiting until this statement resolves to true
+        }, 10000, 'message to log to console if element is not present after that time');
     });
-
-
     it('should return results', function() {
-        expect(element(by.id('result')).first().getText()).toEqual("Nothing Yet");
+
+        expect($('#result').getText()).toEqual("Nothing Yet");
 
         // Find the element with ng-model="user" and type "jacksparrow" into it
         element(by.model('email')).sendKeys('loren@klingman.us');
         element(by.model('password')).sendKeys('test');
 
         // Find the first (and only) button on the page and click it
-        element(by.css(':button')).click();
+        $('button').click();
+
+        //browser.waitsFor(1000);
 
         // Verify it was successful
-        expect(element(by.id('result')).first().getText()).toEqual("Valid! Got a token!");
+        expect($('#result').getText()).toEqual("Valid! Got a token!");
     });
 
-  });
-
-
-  describe('view2', function() {
-
-    beforeEach(function() {
-      browser.get('index.html#!/view2');
-    });
-
-
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
-    });
-
-  });
 });
 
+
+describe('register', function() {
+
+    beforeEach(function() {
+        browser.get('register');
+    });
+
+
+    it('should render register when user navigates to register', function() {
+        expect($('button').getText()).
+        toMatch(/Register/);
+    });
+
+});
