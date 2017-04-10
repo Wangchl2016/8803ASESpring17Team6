@@ -12,6 +12,11 @@ Next, run ``./node_modules/.bin/angular-http-server`` or ``./runServer.sh`` as a
 
 Now, launch your web browser to ``http://127.0.0.1:8080``.
 
+
+## To Run Tests
+
+Run ``npm test``
+
 To sync from here to the project repo:
 
     rsync -a --exclude='.git/' --exclude='server/' ./8803ASESpring17Team6/ ./8803ASESpring17PPPrj2/web/
