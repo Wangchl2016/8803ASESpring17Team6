@@ -15,7 +15,11 @@ Now, launch your web browser to ``http://127.0.0.1:8080``.
 
 ## To Run Tests
 
-Run ``npm test``
+Run
+
+1. `` ./node_modules/protractor/bin/webdriver-manager update``
+2. `` ./node_modules/protractor/bin/webdriver-manager update``
+3. ``./node_modules/protractor/bin/protractor e2e-tests/protractor.conf.js ``
 
 To sync from here to the project repo:
 
