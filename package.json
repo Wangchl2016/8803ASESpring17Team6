@@ -21,8 +21,8 @@
     "protractor": "^4.0.9"
   },
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start karma.conf.js"
-    "protractor": "protractor e2e-tests/protractor.conf.js",
+    "test": "./node_modules/karma/bin/karma start karma.conf.js",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
   },
   "author": "",
   "license": "ISC"

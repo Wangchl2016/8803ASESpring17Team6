@@ -21,7 +21,7 @@ angular.module('playlistModule')
                         $scope.result = "Login failed! Invalid username and password.";
                     else{
                         $scope.result = "Valid! Got a token!";// "+response.data.token);
-                        //$location.path('/playlist');
+                        $location.path('/playlist');
                         //$location.path('/main');
                         //window.location.href = '/main';
                     }

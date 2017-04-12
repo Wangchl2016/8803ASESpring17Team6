@@ -28,9 +28,9 @@ angular.module('playlistModule')
                 //if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
                 if (response.hasOwnProperty('data')) {
                     if (response.data == 0)
-                        alert("Register failed! User existed");
+                        alert("Registration failed! User exists");
                     else{
-                        alert("Valid! Got a token!");// + response.data); //+response.data.token);
+                        // alert("Valid! Got a token!");// + response.data); //+response.data.token);
                         $location.path('/playlist');
                         //window.location.href = '/main';
                     }
