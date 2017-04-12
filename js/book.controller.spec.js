@@ -5,6 +5,6 @@ describe('Book controller', function() {
   });
   it('has a dummy spec to test 3 + 2', function() {
     // An intentionally failing test. No code within expect() will never equal 4.
-    expect(2+2).toEqual(5);
+    expect(3+2).toEqual(5);
   });
 });
