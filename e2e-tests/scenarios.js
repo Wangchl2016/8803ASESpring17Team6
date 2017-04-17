@@ -50,7 +50,7 @@ describe('login', function() {
 describe('register', function() {
 
     beforeEach(function() {
-        browser.get('register1');
+        browser.get('register');
     });
 
 
@@ -88,7 +88,7 @@ describe('register', function() {
 
 describe('register and login', function() {
     beforeEach(function() {
-        browser.get('register1');
+        browser.get('register');
     });
 
     it('registers a new user and logs her in', function() {

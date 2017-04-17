@@ -1,21 +1,21 @@
+/**
+ * Created by Poul on 3/25/17.
+ */
+
 angular.module('playlistModule')
 
-    .controller('RegisterController', function($scope, $http, $rootScope, $location) {
-        $scope.register = function (regForm) {
-            if (!regForm.$valid) {
-                alert("Please enter a valid email address and password.");
-                return false;
-            }
-            if ($scope.password != $scope.password2) {
-                alert("Password and Confirm Password do not match!");
-                $scope.password = '';
-                $scope.password2 = '';
+    .controller('RegisterController', function($scope, $location, $http, $rootScope) {
+        $scope.result = "";
+        $scope.register = function (registerForm) {
+            if (!registerForm.$valid) {
+                alert("Please enter valid name, email address and password.");
                 return false;
             }
             var user = {
-                'name': $scope.name,
-                'email': $scope.email,
-                'password': $scope.password
+                //'name' : $scope.firstname +" " + $scope.lastname,
+                'username' : $scope.firstname +" " + $scope.lastname,
+                'email' : $scope.email,
+                'password' : $scope.password
             };
             $http({
                 method: 'POST',
@@ -23,19 +23,28 @@ angular.module('playlistModule')
                 data: user
             }).then(function successCallback(response, status) {
                 console.log(response);
-                if (response.hasOwnProperty('data') && response.data.hasOwnProperty('email') && response.data.email == $scope.email) {
-                    alert("Congratulations! You've registered!");
-                    $location.path('/login');
+                // //alert("server reply: "+response.data.email +" register successful!");
+                // // show response
+                // alert("response "+JSON.stringify(response.data));
+                //if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
+                if (response.hasOwnProperty('data')) {
+                    if (response.data == 0)
+                        $scope.result = "Registration failed! User exists";
+                    else{
+                        // alert("Valid! Got a token!");// + response.data); //+response.data.token);
+                        $location.path('/playlist');
+                        //window.location.href = '/main';
+                    }
                 } else {
-                    alert("Registration Failed");
+                    alert("Register Failed");
                 }
+
             }, function errorCallback(response) {
-                if (response.status == 412) {
-                    alert('Invalid Input: Please check that your email address is correct.');
-                } else {
-                    alert("Registration Failed " + response.status);
-                }
+                $scope.result = "Register Failed " + response.status;
+                //alert("response "+JSON.stringify(response));
             });
+
+            //alert("local echo: "+$scope.email+" "+$scope.password+" "+$scope.firstname +" "+$scope.lastname);
             return false;
         };
     });

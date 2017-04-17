@@ -1,12 +1,14 @@
 <div class="welcome login">
-    <h1>Playlist Sharing App - Register</h1>
-    <form ng-submit="register(regForm)" name="regForm">
-        <input type="text" required="required" placeholder="Name" ng-model="name" size="30" minlength="5"><br>
-        <input type="email" required="required" placeholder="Email" ng-model="email" size="30"><br>
-        <input type="password" required="required" placeholder="Password" ng-model="password" size="12">
-        <input type="password" required="required" placeholder="Confirm Password" ng-model="password2" size="14"><br>
+    <h1>Register</h1>
+
+    <form ng-submit="register(registerForm)" name="registerForm">
+        <input type="text" required="required" placeholder="First Name" ng-model="firstname" size = "21">
+        <input type="text" required="required" placeholder="Last Name" ng-model="lastname" size = "21">
+        <input type="email" required="required" placeholder="Email" ng-model="email" size="30">
+        <input type="password" required="required" placeholder="Password" ng-model="password" size="12"><br>
         &nbsp;<br>
         <button type="submit" class="myButton">Register</button> <a href="/">Back</a>
         <div ng-bind="result" id="result" class="result"></div>
     </form>
+
 </div>
