@@ -5,6 +5,7 @@
 angular.module('playlistModule')
 
     .controller('RegisterController1', function($scope, $location, $http, $rootScope) {
+        $scope.result = "";
         $scope.register = function (registerForm) {
             if (!registerForm.$valid) {
                 alert("Please enter valid name, email address and password.");
@@ -28,7 +29,7 @@ angular.module('playlistModule')
                 //if (response.hasOwnProperty('data') && response.data.hasOwnProperty('token')) {
                 if (response.hasOwnProperty('data')) {
                     if (response.data == 0)
-                        alert("Registration failed! User exists");
+                        $scope.result = "Registration failed! User exists";
                     else{
                         // alert("Valid! Got a token!");// + response.data); //+response.data.token);
                         $location.path('/playlist');
@@ -39,7 +40,7 @@ angular.module('playlistModule')
                 }
 
             }, function errorCallback(response) {
-                alert("Register Failed " + response.status);
+                $scope.result = "Register Failed " + response.status;
                 //alert("response "+JSON.stringify(response));
             });
 

@@ -81,18 +81,7 @@ describe('register', function() {
 
         $('button').click();
 
-        browser.wait(function () {
-            return browser.switchTo().alert().then(
-                function () {return true;},
-                function () {return false;}
-            ); 
-        }, 3000);
-
-        var popupAlert = browser.switchTo().alert();
-        var alertText = popupAlert.getText();
-        popupAlert.dismiss();
-
-        expect(alertText).toEqual('Registration failed! User exists');
+        expect($('#result').getText()).toEqual("Registration failed! User exists");
     });
 
 });
